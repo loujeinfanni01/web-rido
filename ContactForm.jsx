@@ -2,31 +2,19 @@ import React, { useState } from 'react';
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
 
-interface FormValues {
-  name: string;
-  email: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-
-const ContactForm: React.FC = () => {
-  const [formValues, setFormValues] = useState<FormValues>({
+const ContactForm = () => {
+  const [formValues, setFormValues] = useState({
     name: '',
     email: '',
     message: ''
   });
   
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const validate = (): boolean => {
-    const newErrors: FormErrors = {};
+  const validate = () => {
+    const newErrors = {};
     
     if (!formValues.name.trim()) {
       newErrors.name = 'Name is required';
@@ -46,7 +34,7 @@ const ContactForm: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues(prev => ({
       ...prev,
@@ -54,7 +42,7 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validate()) {
