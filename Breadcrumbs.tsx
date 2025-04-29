@@ -1,17 +1,7 @@
 import React from 'react';
 import { Link } from './Link';
 
-interface BreadcrumbItem {
-  label: string;
-  href: string;
-  current?: boolean;
-}
-
-interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
-}
-
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
+const Breadcrumbs = ({ items }) => {
   return (
     <div className="flex items-center space-x-3 text-sm uppercase tracking-widest">
       {items.map((item, index) => (
