@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Button from './Button';
 
-const ContactHero: React.FC = () => {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+const ContactHero = () => {
+  const headingRef = useRef(null);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     if (headingRef.current) {
