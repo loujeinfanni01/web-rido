@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const ContactButton: React.FC = () => {
+const ContactButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
